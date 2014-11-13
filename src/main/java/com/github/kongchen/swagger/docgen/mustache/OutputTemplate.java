@@ -32,7 +32,6 @@ public class OutputTemplate {
 
     public OutputTemplate(AbstractDocumentSource docSource) {
         feedSource(docSource);
-        this.sortApis = docSource.isSortApis();
     }
 
     public static String getJsonSchema() {
@@ -91,7 +90,15 @@ public class OutputTemplate {
         this.apiInfo = apiInfo;
     }
 
-    /**
+    public boolean isSortApis() {
+        return sortApis;
+    }
+
+    public void setSortApis(boolean sortApis) {
+        this.sortApis = sortApis;
+    }
+
+  /**
      * Create mustache document according to a swagger document apilisting
      * @param swaggerDoc
      * @return
@@ -180,6 +187,7 @@ public class OutputTemplate {
         setApiVersion(source.getApiVersion());
         setBasePath(source.getBasePath());
         setApiInfo(source.getApiInfo());
+        setSortApis(source.isSortApis());
         for (ApiListing doc : source.getValidDocuments()) {
             if (doc.apis().isEmpty()){
                 continue;
