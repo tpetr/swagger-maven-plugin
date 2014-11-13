@@ -7,15 +7,15 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.kongchen</groupId>
+    <groupId>com.hubspot</groupId>
     <artifactId>swagger-maven-plugin</artifactId>
-    <version>2.3.2-SNAPSHOT</version>
+    <version>2.3.3-HUBSPOT</version>
     <packaging>maven-plugin</packaging>
     <name>Swagger Maven Plugin</name>
     <description>
         A maven build plugin which helps you generate API document during build phase
     </description>
-    <url>https://github.com/kongchen/swagger-maven-plugin</url>
+    <url>https://github.com/tpetr/swagger-maven-plugin</url>
     <licenses>
         <license>
             <name>Apache license</name>
@@ -24,9 +24,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git@github.com:kongchen/swagger-maven-plugin.git</connection>
-        <url>scm:git:git@github.com:kongchen/swagger-maven-plugin.git</url>
-        <developerConnection>scm:git:git@github.com:kongchen/swagger-maven-plugin.git</developerConnection>
+        <connection>scm:git:git@github.com:tpetr/swagger-maven-plugin.git</connection>
+        <url>scm:git:git@github.com:tpetr/swagger-maven-plugin.git</url>
+        <developerConnection>scm:git:git@github.com:tpetr/swagger-maven-plugin.git</developerConnection>
     </scm>
 
     <developers>
@@ -34,6 +34,11 @@
             <id>kongchen</id>
             <name>Kong Chen</name>
             <timezone>+8</timezone>
+        </developer>
+        <developer>
+            <id>tpetr</id>
+            <name>Tom Petr</name>
+            <timezone>-5</timezone>
         </developer>
     </developers>
 
