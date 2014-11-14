@@ -32,6 +32,8 @@ public class MustacheDocument implements Comparable<MustacheDocument> {
 
     private String resourcePath;
 
+    private String anchor;
+
     private String description;
 
     private List<MustacheApi> apis = new ArrayList<MustacheApi>();
@@ -64,6 +66,7 @@ public class MustacheDocument implements Comparable<MustacheDocument> {
             models.putAll(JavaConversions.mapAsJavaMap(apiListing.models().get()));
         }
         this.resourcePath = apiListing.resourcePath();
+        this.anchor = this.resourcePath.toLowerCase().replace("/", "");
         this.index = apiListing.position();
         this.apis = new ArrayList<MustacheApi>(apiListing.apis().size());
         this.description = Utils.getStrInOption(apiListing.description());
@@ -71,6 +74,7 @@ public class MustacheDocument implements Comparable<MustacheDocument> {
 
     public void setResourcePath(String resourcePath) {
         this.resourcePath = resourcePath;
+        this.anchor = resourcePath.toLowerCase().replace("/", "");
     }
 
     public void setDescription(String description) {
@@ -256,6 +260,10 @@ public class MustacheDocument implements Comparable<MustacheDocument> {
             models.put(key, modelMap.get(key));
         }
         return modelMap.keySet().iterator().next();
+    }
+
+    public String getAnchor() {
+        return anchor;
     }
 }
 

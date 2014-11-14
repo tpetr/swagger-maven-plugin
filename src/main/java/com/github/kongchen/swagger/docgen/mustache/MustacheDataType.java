@@ -5,10 +5,13 @@ import java.util.List;
 public class MustacheDataType implements Comparable<MustacheDataType> {
     private final String name;
 
+    private final String anchor;
+
     private List<MustacheItem> items;
 
     public MustacheDataType(MustacheDocument mustacheDocument, String requestType) {
         this.name = requestType;
+        this.anchor = requestType.toLowerCase().replace("/", "");
         this.items = mustacheDocument.analyzeDataTypes(requestType);
     }
 
@@ -33,6 +36,8 @@ public class MustacheDataType implements Comparable<MustacheDataType> {
         return name;
     }
 
+    public String getAnchor() { return anchor; }
+
     public List<MustacheItem> getItems() {
         return items;
     }
@@ -53,6 +58,7 @@ public class MustacheDataType implements Comparable<MustacheDataType> {
     public String toString() {
         return "MustacheDataType{" +
                 "name='" + name + '\'' +
+                "anchor='" + anchor + '\'' +
                 ", items=" + items +
                 '}';
     }

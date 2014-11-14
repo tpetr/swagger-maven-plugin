@@ -13,6 +13,8 @@ public class MustacheApi {
 
     private final String url;
 
+    private final String anchor;
+
     private final List<MustacheOperation> operations = new LinkedList<MustacheOperation>();
 
     public MustacheApi(String basePath, ApiDescription api) {
@@ -21,6 +23,7 @@ public class MustacheApi {
             this.path = "/" + this.path;
         }
         this.url = basePath + api.path();
+        this.anchor = this.url.toLowerCase().replace("/", "");
         this.description = Utils.getStrInOption(api.description());
     }
 
@@ -47,4 +50,6 @@ public class MustacheApi {
     public String getDescription() {
         return description;
     }
+
+    public String getAnchor() { return anchor; }
 }
